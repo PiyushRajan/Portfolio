@@ -36,22 +36,22 @@ export const skillsImage = (skill :any) => {
     case 'next js':
       return nextJS;
 
-    case 'redux':
+    case 'redux toolkit':
       return redux;
 
     case 'graphql':
       return graphql;
 
-    case 'materialui':
+    case 'material ui':
       return materialui;
 
-    case 'chakraui':
+    case 'chakra ui':
       return chakraui;
 
     case 'tailwind':
       return tailwind;
 
-    case 'nodejs':
+    case 'node js':
       return nodejs;
 
     case 'express':
