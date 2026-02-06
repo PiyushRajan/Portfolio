@@ -1,5 +1,3 @@
-
-// @flow strict
 import Link from 'next/link';
 
 function Footer() {
@@ -11,7 +9,7 @@ function Footer() {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm">
-            © Developer Portfolio by <Link target="_blank" href="https://www.linkedin.com/" className="text-[#16f2b3]">Piyush</Link>
+            © Portfolio by <Link target="_blank" href="https://www.linkedin.com/" className="text-[#16f2b3]">Piyush</Link>
           </p>
         </div>
       </div>
