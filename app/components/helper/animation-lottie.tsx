@@ -2,7 +2,13 @@
 
 import Lottie from "lottie-react";
 
-const AnimationLottie = ({ animationPath }:{animationPath:any}) => (
+
+type Props = {
+  animationPath: Record<string, unknown>;
+};
+
+
+const AnimationLottie = ({ animationPath }: Props) => (
   <Lottie
     animationData={animationPath}
     loop

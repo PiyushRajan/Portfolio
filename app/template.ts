@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 
-export default function Template({ children }:{children: any}) {
+export default function Template({ children }:{children: ReactNode}) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

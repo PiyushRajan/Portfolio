@@ -1,4 +1,6 @@
-export const projectsData = [
+import type { Project } from "@/app/components/homepage/projects";
+
+export const projectsData: Project[] = [
     {
         id: 1,
         name: 'E-Commerce Application',

@@ -17,7 +17,7 @@ function ContactForm() {
     message: "",
   });
 
-  const handleSendMail = async (e:any) => {
+  const handleSendMail = async (e:React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!userInput.email || !userInput.message || !userInput.name) {

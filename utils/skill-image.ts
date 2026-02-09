@@ -14,7 +14,7 @@ import nodejs from "../app/assets/svg/skills/nodejs.svg"
 import express from "../app/assets/svg/skills/express.svg"
 import chakraui from "../app/assets/svg/skills/chakraui.svg"
 
-export const skillsImage = (skill :any) => {
+export const skillsImage = (skill :string) => {
   const skillID = skill.toLowerCase();
   switch (skillID) {
     

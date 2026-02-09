@@ -1,6 +1,11 @@
 import * as React from 'react';
+import type { Project } from "@/app/components/homepage/projects";
 
-function ProjectCard({ project }: {project: any}) {
+type ProjectCardProps = {
+  project: Project;
+};
+
+function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <div className="from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full">
@@ -37,7 +42,7 @@ function ProjectCard({ project }: {project: any}) {
             <span className=" text-white">tools:</span>
             <span className="text-gray-400">{` ['`}</span>
             {
-              project.tools.map((tag:any, i:number) => (
+              project.tools.map((tag, i) => (
                 <React.Fragment key={i}>
                   <span className="text-amber-300">{tag}</span>
                   {

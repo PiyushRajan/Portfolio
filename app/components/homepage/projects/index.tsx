@@ -3,6 +3,16 @@
 import { projectsData } from '@/utils/data/projects-data';
 import ProjectCard from './project-card';
 
+export type Project = {
+  id: number;
+  name: string;
+  description: string;
+  tools: string[];
+  role: string;
+  code?: string;
+  demo?: string;
+};
+
 const Projects = () => {
 
   return (
@@ -19,7 +29,7 @@ const Projects = () => {
 
       <div className="pt-24">
         <div className="flex flex-col gap-6">
-          {projectsData.slice(0, 4).map((project:any, index:number) => (
+          {projectsData.slice(0, 4).map((project, index) => (
             <div
               id={`sticky-card-${index + 1}`}
               key={index}

@@ -11,11 +11,18 @@ const CONFIG = {
   opacity: 0,
 };
 
-const GlowCard = ({ children, identifier }: any) => {
-  const updateCards = useCallback((event:any) => {
-    const cards = document.querySelectorAll(`.glow-card-${identifier}`) as any
 
-    cards.forEach((card :any) => {
+type GlowCardProps = {
+  children: React.ReactNode;
+  identifier: string | number;
+};
+
+
+const GlowCard: React.FC<GlowCardProps> = ({ children, identifier }) => {
+  const updateCards = useCallback((event:PointerEvent) => {
+    const cards = document.querySelectorAll<HTMLElement>(`.glow-card-${identifier}`);
+
+    cards.forEach((card) => {
       const bounds = card.getBoundingClientRect();
       const isNearby = 
         event?.x > bounds.left - CONFIG.proximity &&
@@ -23,24 +30,25 @@ const GlowCard = ({ children, identifier }: any) => {
         event?.y > bounds.top - CONFIG.proximity &&
         event?.y < bounds.top + bounds.height + CONFIG.proximity;
 
-      card.style.setProperty('--active', isNearby ? 1 : CONFIG.opacity);
+      card.style.setProperty('--active', String(isNearby ? 1 : CONFIG.opacity));
 
       if (isNearby) {
         const centerX = bounds.left + bounds.width * 0.5;
         const centerY = bounds.top + bounds.height * 0.5;
         let angle = (Math.atan2(event.y - centerY, event.x - centerX) * 180) / Math.PI;
         angle = angle < 0 ? angle + 360 : angle;
-        card.style.setProperty('--start', angle + 90);
+        card.style.setProperty('--start', String(angle + 90));
       }
     });
   }, [identifier]);
 
   useEffect(() => {
-    const container = document.querySelector(`.glow-container-${identifier}`) as any;
+    const container = document.querySelector<HTMLElement>(`.glow-container-${identifier}`);
+    if (!container) return;
     
-    container.style.setProperty('--gap', CONFIG.gap);
-    container.style.setProperty('--blur', CONFIG.blur);
-    container.style.setProperty('--spread', CONFIG.spread);
+    container.style.setProperty('--gap', String(CONFIG.gap));
+    container.style.setProperty('--blur', String(CONFIG.blur));
+    container.style.setProperty('--spread', String(CONFIG.spread));
     container.style.setProperty('--direction', CONFIG.vertical ? 'column' : 'row');
 
     document.body.addEventListener('pointermove', updateCards);

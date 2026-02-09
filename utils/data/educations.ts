@@ -1,4 +1,6 @@
-export const educations = [
+import { EducationItem } from "@/app/components/homepage/education"
+
+export const educations: EducationItem[] = [
   {
     id: 1,
     title: "Bachelor’s of Computer Applications",
